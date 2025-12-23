@@ -13,7 +13,7 @@
    ```bash
    sudo dnf install -y rpm-build rpmdevtools
    git clone https://github.com/KySKuS/KySKuS-checker
-   cd KySKuS_checker
+   cd KySKuS-checker
    mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
    cp check.sh kyskus-checker check.service ~/rpmbuild/SOURCES/
    cp KySKuS_checker.spec ~/rpmbuild/SPECS/
