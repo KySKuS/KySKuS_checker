@@ -20,7 +20,7 @@
    cp KySKuS_checker.conf.example ~/rpmbuild/SOURCES/KySKuS_checker.conf
    rpmbuild -bb ~/rpmbuild/SPECS/KySKuS_checker.spec
 ## Настройка и управление
-Доступные параметры
+### Доступные параметры
 interval   Интервал проверки (в секундах)   
 files      Список файлов для мониторинга
 auto_start Включить автозапуск при загрузке
