@@ -21,7 +21,8 @@
   # После установки
      
      sudo dnf install -y RPMS/noarch/KySKuS_checker-*.rpm
-  
+     sudo systemctl enable --now check
+     kyskus-checker get all
 # Настройка и управление
 
 
