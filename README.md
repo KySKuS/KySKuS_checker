@@ -18,7 +18,7 @@
    cp check.sh kyskus-checker check.service ~/rpmbuild/SOURCES/
    cp KySKuS_checker.spec ~/rpmbuild/SPECS/
    cp KySKuS_checker.conf ~/rpmbuild/SOURCES/KySKuS_checker.conf
-   rpmbuild -bb ~/rpmbuild/SPECS/KySKuS_checker.spec
+   rpmbuild -bb ~/rpmbuild/SPECS/KySKuS-checker.spec
 ## Настройка и управление
 ### Доступные параметры
 | Атрибут | Для чего используется |
