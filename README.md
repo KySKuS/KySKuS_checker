@@ -12,7 +12,7 @@
 1. Соберите RPM:
    ```bash
    sudo dnf install -y git rpm-build dnf-plugins-core
-   git clone https://github.com/KySKuS/KySKuS-checker.git
+   git clone https://github.com/KySKuS/KySKuS_checker.git
    cd KySKuS_checker
    rpmbuild \
    --buildroot "$(pwd)/root" \
