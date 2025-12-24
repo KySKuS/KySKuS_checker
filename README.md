@@ -11,21 +11,32 @@
 
 1. Соберите RPM:
    ```bash
-   sudo dnf install -y rpm-build rpmdevtools
-   git clone https://github.com/KySKuS/KySKuS-checker
-   cd KySKuS-checker
-   mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
-   cp check.sh kyskus-checker check.service ~/rpmbuild/SOURCES/
-   cp KySKuS_checker.spec ~/rpmbuild/SPECS/
-   cp KySKuS_checker.conf ~/rpmbuild/SOURCES/KySKuS_checker.conf
-   rpmbuild -bb ~/rpmbuild/SPECS/KySKuS-checker.spec
-## Настройка и управление
+   sudo dnf install -y git rpm-build dnf-plugins-core
+   git clone https://github.com/kyskus-13-70/KySKuS_checker.git
+   cd KySKuS_checker
+   rpmbuild \
+  --buildroot "$(pwd)/root" \
+  --define "_topdir $(pwd)" \
+  -bb KySKuS_checker.spec
+  # После установки
+  sudo dnf install -y RPMS/noarch/KySKuS_checker-*.rpm
+  
+# Настройка и управление
+
+
+## Удаляем всё старое 
+### Удалить пакет
+sudo dnf remove -y KySKuS_checker
+### Удалить остаточные файлы (опционально)
+sudo rm -rf /var/lib/check
+
 ### Доступные параметры
 | Атрибут | Для чего используется |
 | ------------- | ------------- |
 | interval  | Интервал проверки (в секундах) |
 | files  | Список файлов для мониторинга   |
 | auto_start  |  Включить автозапуск при загрузке  |
+
 ### Примеры
 ```bash
    kyskus-checker get all  
@@ -33,8 +44,5 @@
    sudo kyskus-checker set files /etc/passwd,/etc/hosts  
    sudo kyskus-checker set auto_start true   # включить автозапуск  
    sudo kyskus-checker set auto_start false  # выключить автозапуск
-## Удаляем всё старое 
-sudo dnf remove -y KySKuS_checker check 2>/dev/null
-sudo rm -rf ~/KySKuS_checker
-sudo rm -f /etc/KySKuS_checker.conf
-sudo rm -rf /var/lib/check
+   systemctl status check #проверить статус службы
+   systemctl restart check #перезапустить вручную
