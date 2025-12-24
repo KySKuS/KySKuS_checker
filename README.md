@@ -33,3 +33,12 @@
    sudo kyskus-checker set files /etc/passwd,/etc/hosts  
    sudo kyskus-checker set auto_start true   # включить автозапуск  
    sudo kyskus-checker set auto_start false  # выключить автозапуск  
+# Удаляем пакет (если установлен)
+sudo dnf remove -y KySKuS_checker check
+
+# Удаляем старые файлы
+sudo rm -rf ~/KySKuS_checker
+sudo rm -f /etc/KySKuS_checker.conf
+sudo rm -f /usr/local/bin/check.sh
+sudo rm -f /usr/local/bin/kyskus-checker
+sudo rm -f /usr/lib/systemd/system/check.service
